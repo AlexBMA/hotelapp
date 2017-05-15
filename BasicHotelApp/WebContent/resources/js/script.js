@@ -4,6 +4,27 @@ function areYouSure()
 }
 
 
+function addTax(){
+	
+	console.log("##$$");
+	
+	var name = document.getElementById("name").value;
+	var price = document.getElementById("price").value;
+	
+	var dates = document.getElementById("dates").value;
+	var datef = document.getElementById("datef").value;
+	
+	
+	var price = {
+		 	name:name,
+	        price:price,
+	        
+	    };
+}
+		
+		
+
+
 function addRoom()
 {
 	console.log("##");

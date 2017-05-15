@@ -44,4 +44,10 @@ public class ServiceOptionDAOImpl implements ServiceOptionDAO<ServiceOption> {
 		
 	}
 
+	@Override
+	public int insertAndGetId(Connection conn, ServiceOption item) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

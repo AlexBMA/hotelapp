@@ -48,4 +48,10 @@ public class PriceForServiceDAOImpl implements PriceForServiceDAO<PriceForServic
 		
 	}
 
+	@Override
+	public int insertAndGetId(Connection conn, PriceForServiceOption item) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

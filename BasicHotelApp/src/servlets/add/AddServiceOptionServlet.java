@@ -1,4 +1,4 @@
-package servlets.view;
+package servlets.add;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,16 +24,16 @@ import services.general.PathCreatorPrefixAndSufix;
 import services.general.PathCreatorPrefixAndSufixImpl;
 
 /**
- * Servlet implementation class ViewServiceOptionServlet
+ * Servlet implementation class AddServiceOption
  */
-@WebServlet("/ViewServiceOptionServlet")
-public class ViewServiceOptionServlet extends HttpServlet {
+@WebServlet("/AddServiceOption")
+public class AddServiceOptionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ViewServiceOptionServlet() {
+    public AddServiceOptionServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,9 +42,30 @@ public class ViewServiceOptionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String nameService = request.getParameter("nameserviceoption");
+		String positionText = request.getParameter("nameserviceposition");
+		
+		int positionNr = Integer.parseInt(positionText);
+		
+		
+		ServiceOption temp = new ServiceOption();
+		temp.setName(nameService);
+		temp.setPosition(positionNr);
 		
 		
 		ServiceOptionDAO< ServiceOption> serviceOptionOP = new ServiceOptionDAOImpl();
+		
+		serviceOptionOP.insertAndGetId(Db.getConn(), temp);
+		
 		
 		List<ServiceOption> listS = serviceOptionOP.getAll(Db.getConn());
 		System.out.println(listS.toString());
@@ -69,14 +90,6 @@ public class ViewServiceOptionServlet extends HttpServlet {
 		requestDispatcher.forward(request, response);
 		
 		
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

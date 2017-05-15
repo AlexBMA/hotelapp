@@ -49,6 +49,7 @@ public class MyCurrencyDaoImpl implements MyCurrencyDAO<MyCurrency> {
 			while (set.next()) {
 				MyCurrency tempC = new MyCurrency();
 				putDataInObject(set, tempC);
+				list.add(tempC);
 			}
 			System.out.println("Get all succes in table "+MyCurrencyEntry.TABLE_NAME);
 			return list;

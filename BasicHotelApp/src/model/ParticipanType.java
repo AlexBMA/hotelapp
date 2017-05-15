@@ -16,6 +16,10 @@ public class ParticipanType {
 	public void setName(String name) {
 		this.name = name;
 	}
+	@Override
+	public String toString() {
+		return "ParticipanType [id=" + id + ", name=" + name + "]";
+	}
 	
 	
 }

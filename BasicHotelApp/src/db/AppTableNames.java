@@ -9,7 +9,7 @@ public final class AppTableNames {
 	 */
 	public abstract class ServiceOptionEntry{
 		
-		public final static String TABLE_NAME="service_option";
+		public final static String TABLE_NAME="service_options";
 		
 		public final static String COLUMN_ID="id";
 		public final static String COLUMN_NAME="name";

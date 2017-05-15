@@ -24,16 +24,16 @@ import services.general.PathCreatorPrefixAndSufix;
 import services.general.PathCreatorPrefixAndSufixImpl;
 
 /**
- * Servlet implementation class ViewServiceOptionServlet
+ * Servlet implementation class ViewEditServiceOperationServlet
  */
-@WebServlet("/ViewServiceOptionServlet")
-public class ViewServiceOptionServlet extends HttpServlet {
+@WebServlet("/ViewEditServiceOperationServlet")
+public class ViewEditServiceOperationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ViewServiceOptionServlet() {
+    public ViewEditServiceOperationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,7 +44,11 @@ public class ViewServiceOptionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
+		String serviceIdText = request.getParameter("idservice");
+		int serviceIdNr = Integer.parseInt(serviceIdText);
+		
 		ServiceOptionDAO< ServiceOption> serviceOptionOP = new ServiceOptionDAOImpl();
+		ServiceOption temp = serviceOptionOP.getItemById(Db.getConn(), serviceIdNr);
 		
 		List<ServiceOption> listS = serviceOptionOP.getAll(Db.getConn());
 		System.out.println(listS.toString());
@@ -57,17 +61,17 @@ public class ViewServiceOptionServlet extends HttpServlet {
 		List<ParticipanType> listPt = ptSevice.getAll(Db.getConn());
 		System.out.println(listPt.toString());
 		
-		request.setAttribute("listS", listS);
+		request.setAttribute("temp", temp);
 		request.setAttribute("listC", listC);
 		request.setAttribute("listP", listPt);
 		
-		String pageName="ServiceOption";
+		
+		String pageName="EditServiceOptions";
 		
 		PathCreatorPrefixAndSufix pathCreator = new PathCreatorPrefixAndSufixImpl();
 		
 		RequestDispatcher requestDispatcher = pathCreator.createPathForDispatcher(request, pageName);
 		requestDispatcher.forward(request, response);
-		
 		
 	}
 

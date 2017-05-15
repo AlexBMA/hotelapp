@@ -33,7 +33,7 @@ public final class AppTableNames {
 		public final static String COLUMN_CURRENCY_ID="currency_id";
 		public final static String COLUMN_DATE_FROM="date_from";
 		public final static String COLUMN_DATE_TO="date_to";
-		public final static String COLUMN_PARTICIPANT_TYPE="participant_type";
+		public final static String COLUMN_PARTICIPANT_TYPE_ID="participant_type_id";
 	}
 	
 	public abstract class MyCurrencyEntry{

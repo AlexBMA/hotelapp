@@ -12,5 +12,10 @@
 	
 	<button type="submit">Go</button>
 </form>
+
+<form action="${pageContext.request.contextPath}/ViewServiceOptionServlet" method="get">
+	
+	<button type="submit">Go2</button>
+</form>
 </body>
 </html>
